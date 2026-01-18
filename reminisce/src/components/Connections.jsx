@@ -25,21 +25,20 @@ const Connections = () => {
                 <h2 className='my-5 text-xl font-bold'>Your connections :</h2>
                 <div className="flex flex-col gap-4 h-full pb-20 overflow-y-auto">
                     {knownFaces.length > 0 ? knownFaces.map((c, i) => (
-                        <div key={i} className="group relative flex items-center gap-6 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all rounded-[2rem]">
+                        <div key={i} className="group relative flex flex-col sm:flex-row items-center gap-4 sm:gap-6 p-4 sm:p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all rounded-2xl sm:rounded-[2rem]">
                             {/* Image Section */}
                             <div className="relative shrink-0">
                                 <img
                                     src={c.faceImage || "https://via.placeholder.com/100"}
-                                    className="object-cover w-24 h-24 rounded-2xl shadow-inner border-2 border-white"
+                                    className="object-cover w-20 h-20 sm:w-24 sm:h-24 rounded-xl sm:rounded-2xl shadow-inner border-2 border-white"
                                     alt={c.name}
                                 />
-                                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full"></div>
                             </div>
 
                             {/* Info Section */}
-                            <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-xl font-black text-gray-900 truncate uppercase tracking-tight">{c.name}</h3>
+                            <div className="flex-1 min-w-0 text-center sm:text-left">
+                                <div className="flex items-center justify-center sm:justify-start gap-2 mb-1 flex-wrap">
+                                    <h3 className="text-lg sm:text-xl font-black text-gray-900 truncate uppercase tracking-tight">{c.name}</h3>
                                     {c.contact && (
                                         <span className="px-2 py-0.5 text-[10px] font-black text-red-600 bg-red-50 rounded-full border border-red-100 uppercase">
                                             Priority
@@ -51,7 +50,7 @@ const Connections = () => {
                                     {c.bio || 'Friend'}
                                 </p>
 
-                                <div className="flex flex-wrap items-center gap-2">
+                                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
                                     {c.contact && (
                                         <div className="flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-gray-700 bg-gray-50 rounded-full border border-gray-100">
                                             <span className="text-red-500">📞</span> {c.contact}
@@ -66,9 +65,9 @@ const Connections = () => {
                             </div>
 
                             {/* Action Section */}
-                            <div className="shrink-0 flex items-center pr-2">
+                            <div className="w-full sm:w-auto shrink-0 flex items-center mt-3 sm:mt-0 sm:pr-2">
                                 <button
-                                    className="px-8 py-4 text-xs font-black text-white uppercase tracking-widest rounded-2xl bg-[#ff5c5c] hover:bg-red-600 shadow-lg shadow-red-100 hover:shadow-red-200 transition-all active:scale-[0.98] border-b-4 border-red-700"
+                                    className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 text-xs font-black text-white uppercase tracking-widest rounded-xl sm:rounded-2xl bg-[#ff5c5c] hover:bg-red-600 shadow-lg shadow-red-100 hover:shadow-red-200 transition-all active:scale-[0.98] border-b-4 border-red-700"
                                     onClick={() => navigate(`/history/${c.name}`)}
                                 >
                                     View About

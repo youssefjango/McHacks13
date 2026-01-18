@@ -1,13 +1,12 @@
 import { GoogleGenAI, Type } from '@google/genai';
 
-export const useGemini = () => {
+export const useGemini = (geminiKey) => {
 
     // 1. GENERATE GREETING
     const getGreeting = async (name, bio, history, lastMood, imageBase64) => {
         try {
             const cleanImage = imageBase64.split(',')[1];
-            const apiKey = import.meta.env.VITE_GEMINI_KEY;
-            const ai = new GoogleGenAI({ apiKey });
+            const ai = new GoogleGenAI({ apiKey: geminiKey });
 
             // specific formatting for history
             const historyText = history && history.length > 0
@@ -86,8 +85,7 @@ export const useGemini = () => {
                 required: ["transcript", "emotion", "summary", "tags"]
             };
 
-            const apiKey = import.meta.env.VITE_GEMINI_KEY;
-            const ai = new GoogleGenAI({ apiKey });
+            const ai = new GoogleGenAI({ apiKey: geminiKey });
 
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash',

@@ -27,10 +27,12 @@ export const useFaceRecognition = () => {
     const updateKnownFaces = (name, memoryData) => {
         const updatedFaces = knownFaces.map(p => {
             if (p.name === name) {
-                // Merge tags (keep unique)
+                // Merge tags (keep unique, limit to 8 most recent)
                 const existingTags = p.tags || [];
                 const newTags = memoryData.tags || [];
-                const uniqueTags = Array.from(new Set([...existingTags, ...newTags]));
+                // Put new tags first, then existing, dedupe, take max 8
+                const allTags = [...newTags, ...existingTags];
+                const uniqueTags = Array.from(new Set(allTags)).slice(0, 8);
 
                 const newEntry = {
                     date: new Date().toISOString(),
