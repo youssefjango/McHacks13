@@ -3,6 +3,7 @@ import Webcam from 'react-webcam';
 import * as faceapi from 'face-api.js';
 import axios from 'axios';
 import { GoogleGenAI } from '@google/genai';
+import useSpeechRecognition from './hooks/useSpeechRecognition';
 import './index.css';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
   const [currentFace, setCurrentFace] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [lastGreetingTime, setLastGreetingTime] = useState(0);
+
+  // Speech Recognition Hook
+  const { transcript, transcriptRef, startListening, stopListening, resetTranscript } = useSpeechRecognition();
 
   // Refs
   const webcamRef = useRef(null);
@@ -204,6 +208,7 @@ function App() {
       // 3. Start Recording conversation
       if (!isRecording) {
         startRecording();
+        startListening(); // Start speech recognition when recording begins
       }
     }
 
@@ -220,12 +225,15 @@ function App() {
       console.log("Face lost... waiting 5s before stopping.");
       faceLossTimeoutRef.current = setTimeout(async () => {
         console.log("Face timeout reached. Processing memory.");
+        console.log("TRANSCRIPT:", transcriptRef.current); // Print transcript from ref (always up to date)
         const nameToProcess = currentFaceRef.current;
         setCurrentFace(null); // Reset current face
         currentFaceRef.current = null;
 
         const audioBlob = await stopRecording();
+        stopListening(); // Stop speech recognition
         await processMemory(nameToProcess, audioBlob);
+        resetTranscript(); // Clear transcript after processing
 
       }, 5000); // 5 seconds grace period
     }
