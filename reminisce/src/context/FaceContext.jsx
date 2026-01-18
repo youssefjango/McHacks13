@@ -366,7 +366,6 @@ export const FaceProvider = ({ children }) => {
             // Or use echo cancellation (which is on).
         }
 
-        const voiceId = import.meta.env.VITE_VOICE_ID;
         abortControllerRef.current = new AbortController();
 
         try {
