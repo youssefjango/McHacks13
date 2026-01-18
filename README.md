@@ -3,7 +3,7 @@
 
 ![ReminAiS Demo](https://via.placeholder.com/800x400?text=ReminAiS+Dashboard+Preview)  
 
-![ReminAiS: Your Memory Companion](assets/reminais-banner.png)
+![ReminAiS: Your Memory Companion](infographics.jpg)
 
 ## 💡 Inspiration
 Dementia is a thief that steals not just memories, but connection. For the millions of people living with Alzheimer's and dementia, the anxiety of not recognizing a loved one—a daughter, a lifelong friend, a grandchild—can be paralyzing. This anxiety often leads to social withdrawal and profound isolation.
