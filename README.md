@@ -58,8 +58,8 @@ We built ReminAiS with a modern, privacy-focused stack:
 
 1.  **Clone the repo**
     ```bash
-    git clone https://github.com/kaidalisohaib/McHacks13.git 
-    cd McHacks13/reminisce
+    git clone https://github.com/kaidalisohaib/ReminAiS.git 
+    cd ReminAiS/reminisce
     ```
 
 2.  **Install dependencies**
