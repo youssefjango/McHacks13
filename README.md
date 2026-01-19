@@ -1,7 +1,9 @@
 # ReminAiS (McHacks 13)
 > **Empowering dementia patients to break isolation and create connections.**
 
-![ReminAiS Demo](https://via.placeholder.com/800x400?text=ReminAiS+Dashboard+Preview)  
+![ReminAiS Demo](images/home.png)
+
+![ReminAiS Architecture](images/flow.jpg)  
 
 ![ReminAiS Infographic](reminisce/infographic.jpg)
 
